@@ -8,14 +8,13 @@ import {BrowserRouter as Router,
 } from "react-router-dom";
 import Complete from "./complete";
 import Incomplete from "./incomplete";
+import Formulaire from "./formulaire";
 
 
 export default class App extends React.Component {
-  constructor(){
+  //constructor(){
 
-  }
-
-
+ // }
   
   render(){
     return (
@@ -39,15 +38,15 @@ export default class App extends React.Component {
             </ul>
 
             <Switch>
-                <Route path="/">
+                <Route exact path="/">
                   <Formulaire />
                 </Route>
 
-                <Route path="/incomplete"> 
+                <Route path="./incomplete"> 
                   <Incomplete />
                 </Route>
                 
-                <Route path="/complete">
+                <Route path="./complete">
                   <Complete />
                 </Route>
             </Switch>
@@ -58,6 +57,5 @@ export default class App extends React.Component {
 
     );
 
-
   }
-
+}

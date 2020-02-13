@@ -15,7 +15,7 @@ export default class Incomplete extends React.Component{
 
     render(){
         return(
-            
+            <p>coucou incomplete</p>
            //class="incomplete"
             );
 

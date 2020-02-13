@@ -13,15 +13,8 @@ export default class Complete extends React.Component{
     render(){
         return(
             // class="complete"
-           
+           <p> coucou complete</p>
             );
-
-    }
-
-
-
-
-
-
+        }
 
 }
