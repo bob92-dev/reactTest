@@ -10,49 +10,71 @@ import Complete from "./complete";
 import Incomplete from "./incomplete";
 import Formulaire from "./formulaire";
 
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducer from './Redux/reducers'
+
+// constante nécessaire dans tout projet pour relier react à redux 
+const store = createStore(reducer)
 
 export default class App extends React.Component {
-  //constructor(){
+  constructor(...props){
+    super(...props);
+    this.state={
+      StateParent:''
+    }
 
- // }
+  }
+
+  
+
+  
+
+  passerelle = (event)=>{
+    console.log(event);
+    this.setState({...this.state, StateParent:event});
+    console.log("ici le stateParent du haut" + this.state.StateParent);
+  }
+
+
   
   render(){
     return (
+      <Provider store={store}>
+        <Router>
+            <div>
 
-      <Router>
-          <div>
+              <ul>
+                <li>
+                  <Link to="/">Entrez une nouvelle tâche</Link>
+                </li>
+                <li>
+                  <Link to="/incomplete">Tâches à effectuer</Link>
+                </li>
 
-            <ul>
-              <li>
-                <Link to="/">Entrez une nouvelle tâche</Link>
-              </li>
-              <li>
-                <Link to="/incomplete">Tâches à effectuer</Link>
-              </li>
-
-              <li>
-                <Link to="/complete">Tâches réalisées</Link>
-              </li>
+                <li>
+                  <Link to="/complete">Tâches réalisées</Link>
+                </li>
 
 
-            </ul>
+              </ul>
 
-            <Switch>
-                <Route exact path="/">
-                  <Formulaire />
-                </Route>
+              <Switch>
+                  <Route exact path="/">
+                    <Formulaire propsChild={this.passerelle}/>
+                  </Route>
 
-                <Route path="./incomplete"> 
-                  <Incomplete />
-                </Route>
-                
-                <Route path="./complete">
-                  <Complete />
-                </Route>
-            </Switch>
-          </div>
-      </Router>
-
+                  <Route path="/incomplete"> 
+                    <Incomplete propsChild={this.state.StateParent}/>
+                  </Route>
+                  
+                  <Route path="./complete">
+                    <Complete />
+                  </Route>
+              </Switch>
+            </div>
+        </Router>
+      </Provider>
 
 
     );
