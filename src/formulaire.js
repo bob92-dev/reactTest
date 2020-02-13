@@ -25,7 +25,7 @@ export default class Formulaire extends React.Component{
         return(
             
            // <h1>Liste des tâches à faire</h1>
-            <form>
+            <form class="form">
             <input type="text" name="todo"/>
             <button onClick={this.monClick}></button>
             </form>

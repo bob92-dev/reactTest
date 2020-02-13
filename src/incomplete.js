@@ -16,7 +16,7 @@ export default class Incomplete extends React.Component{
     render(){
         return(
             
-           
+           //class="incomplete"
             );
 
     }
