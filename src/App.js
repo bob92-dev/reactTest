@@ -43,7 +43,7 @@ export default class App extends React.Component {
     return (
       <Provider store={store}>
         <Router>
-            <div>
+            <div class="menuBar">
 
               <ul>
                 <li>

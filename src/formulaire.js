@@ -29,13 +29,16 @@ export default class Formulaire extends React.Component{
 
     render(){
         return(
-            
-           // <h1>Liste des tâches à faire</h1>
-            <form onSubmit={this.handleSubmit}>
-            <input id="input" type="text" name="todo" value={this.state.value} onChange={this.handleChange}/>
-            <button>Ajouter</button>
-            </form>
-            );
+            <div class="container">
+            <div id="card">
+                <h1>Liste des tâches à faire</h1>
+                <form class="form">
+                <input type="text" name="todo"/>
+                <button onClick={this.monClick}>Ajouter</button>
+                </form>
+            </div>
+        </div>
+        );
 
     }
 
