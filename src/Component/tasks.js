@@ -4,14 +4,26 @@ import { withRouter } from 'react-router-dom';
 
 import { connect } from "react-redux";
 import { addTask, endTask } from "../Redux/actions";
+import Formulaire from '../formulaire';
+
+
 
 class Tasks extends React.Component {
-	addTask() {// ici qu'il faut saisir les données
+    constructor({propsChild}){
+        super();
+        this.state = {
+            stateChild: propsChild
+    
+        };
+    }
 
 
-		this.props.addTask({
-	      task: 'Truc',
-	    });
+    
+    addTask() {// ici qu'il faut saisir les données
+		this.props.addTask(
+	      this.state.stateChild
+        );
+        console.log("coucou c'est la fonctoion addtask qui te parle" + this.state.stateChild)
 	}
 
 	endTask(index) {
@@ -37,7 +49,7 @@ class Tasks extends React.Component {
 
 const mapStateToProps = state => {
 	return {
-		tasks: state.tasks
+		task: state.task
 	}
 }
 
@@ -53,7 +65,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-// foncton nécessiar epour relier students au store ?
+
 export default withRouter(connect(
 	mapStateToProps,
 	mapDispatchToProps

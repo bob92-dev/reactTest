@@ -5,6 +5,7 @@ import {
     ADD_TASK,
     END_TASK,
   } from './actions'
+  import Tasks from '../Component/tasks';
   
   
   
@@ -15,12 +16,15 @@ import {
    *
    * @param      {String}  {task}
    */
-      tasks: [
+      tasks:[
           {
-              task: 'Obtenir une dédicasse de Mr CASSEL',
-          }
-      ]
-  };
+              
+              task: 'Obtenir une intro'
+    
+  }
+]
+};
+
 
   
 const arrayHasIndex = (array, index) => Array.isArray(array) && array.hasOwnProperty(index);
@@ -32,7 +36,7 @@ export default function reducer(state = initialState, action) {
 	switch (action.type) {
 
 		case ADD_TASK:
-			return { ...state, tasks: [ ...state.tasks, action.task   ] };
+			return { ...state, tasks: [ ...state.tasks, action.task ] };
 
 		case END_TASK:
 			if (arrayHasIndex(state.tasks, action.datas.index)) {

@@ -18,7 +18,7 @@ export const END_TASK = 'END_TASK';
  * @param      {String}  {type}  Reducer action
  */
 
-export function addtasks(task) {
+export function addTask(task) {
   return { type: ADD_TASK, task };
 }
 

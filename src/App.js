@@ -12,7 +12,8 @@ import Formulaire from "./formulaire";
 
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import reducer from './Redux/reducers'
+import reducer from './Redux/reducers';
+import Tasks from './Component/tasks';
 
 // constante nécessaire dans tout projet pour relier react à redux 
 const store = createStore(reducer)
@@ -66,6 +67,7 @@ export default class App extends React.Component {
 
                   <Route path="/incomplete"> 
                     <Incomplete propsChild={this.state.StateParent}/>
+                    <Tasks propsChild={this.state.StateParent}/> 
                   </Route>
                   
                   <Route path="./complete">

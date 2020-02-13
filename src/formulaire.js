@@ -17,7 +17,7 @@ export default class Formulaire extends React.Component{
         console.log("c'est l'event target : " + event.target.value);
         this.setState({value:event.target.value});
         this.props.propsChild(event.target.value); 
-       console.log("COUCOU TU VEUX VOIR MON PROPSCHILD" + this.props.propsChild(event.target.value));
+       //console.log("COUCOU TU VEUX VOIR MON PROPSCHILD" + this.props.propsChild(event.target.value));
     } 
     handleSubmit=(event)=>{
         event.preventDefault();
